@@ -1,0 +1,60 @@
+<style>
+  main {
+    @include flex(column);
+    @include flex-center;
+    @include color-scheme;
+    @include section(fit-content, 100vw);
+    @include shadow;
+
+    background-image: url("./blob.svg");
+    background-size: cover;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+  }
+  div {
+    @include grid(1fr 1fr, 1fr);
+  }
+  @media screen and (max-width: $mobile) {
+    div {
+      grid-template-columns: 1fr;
+    }
+  }
+  img {
+    @include shadow;
+
+    width: 90%;
+    max-width: $pin-max-width;
+    background-color: transparent;
+  }
+  a {
+    color: $hl;
+  }
+</style>
+
+<main>
+  <h1>Hello there! 👋</h1>
+  <p>I am a self-taught Javascript and Linux enthusiast.</p>
+  <p>
+    I am a ${ new Date().getYear() - new Date("8/8/2004").getYear() } year old
+    full stack web developer.
+  </p>
+  <h1>Some of my Projects.</h1>
+  <div>
+    <import path="./pin" repo="uhc" />
+    <import repo="pipe-script" />
+    <import repo="razite" />
+    <import repo="tik-tac-toe-ai" />
+    <import repo="editmd" />
+    <import repo="procedural_terrain_generation" />
+  </div>
+  <p>
+    see my
+    <a href="https://github.com/AyushmanTripathy/"> GITHUB </a>
+    for more!
+  </p>
+  <h1>Technologies i use,</h1>
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=AyushmanTripathy&layout=compact&exclude_repo=.config&hide_title=true&langs_count=6&theme=dark&hide_border=true&bg_color=303030"
+    alt="most used language"
+  />
+</main>

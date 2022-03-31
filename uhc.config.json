@@ -1,0 +1,18 @@
+{
+  "uhc": "1.9.0",
+  "src_dir": "src",
+  "build_dir": "public",
+  "template": "template.html",
+  "minify": true,
+  "css": {
+    "autoprefix": true,
+    "prefix": "@import \"./mixins.scss\";",
+    "sass": true 
+  },
+  "vars": {
+    "foo": "bar"
+  },
+  "routes": {
+    "/": "index.html"
+  }
+}

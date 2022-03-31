@@ -1,0 +1,24 @@
+<main>
+  <img src="logo.png" alt="logo" />
+  <h1>Ayushman Tripathy</h1>
+  <h3>Javascript | Linux | Open source</h3>
+</main>
+
+<style>
+  main {
+    @include flex(column);
+    @include flex-center;
+    @include no-padding-margin;
+    @include fixed;
+    @include fullscreen;
+    @include color-scheme;
+
+    background-image: url("./layers.svg");
+    background-size: cover;
+    z-index: 0;
+  }
+  img {
+    height: 20vh;
+    aspect-ratio: 1;
+  }
+</style>

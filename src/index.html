@@ -1,0 +1,30 @@
+<style>
+  main {
+    @include flex(column);
+    @include absolute;
+
+    width: 100vw;
+    height: fit-content;
+    z-index: 1;
+  }
+  section {
+    @include fullscreen;
+    background-color: transparent;
+  }
+  p {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    color: $sec;
+    z-index: 5;
+  }
+</style>
+
+<import path="./home" />
+<main>
+  <section></section>
+  <import path="./about" />
+  <import path="./contact" />
+  <import path="./footer" />
+</main>
+<p>@AyushmanTripathy</p>

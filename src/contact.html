@@ -1,0 +1,156 @@
+<style>
+  main {
+    @include flex(column);
+    @include flex-center;
+    @include section(130vh, 100vw);
+
+    justify-content: space-evenly;
+    background-color: $bg;
+    background-image: url("./wave.svg");
+    background-size: cover;
+  }
+  @mixin section-width($height) {
+    @include section($height, 80%);
+    @include shadow;
+
+    max-width: 480px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $grey;
+  }
+  form {
+    @include flex(column);
+    @include flex-center;
+    @include section-width(70%);
+
+    justify-content: space-around;
+  }
+  input,
+  textarea {
+    @include section(fit-content, 90%);
+    @include sans;
+
+    border: none;
+    background-color: $grey;
+    color: $sec;
+    outline: none;
+  }
+  input {
+    font-size: 20px;
+    &::selection {
+      color: red;
+      background: yellow;
+    }
+  }
+  textarea {
+    font-size: 18px;
+    resize: none;
+  }
+  input[type="submit"] {
+    @include shadow;
+    padding: 10px;
+    transition: all 0.7s;
+    border-radius: 5px;
+    border: none;
+
+    &:hover {
+      border-color: $bg;
+      background: $sec;
+      color: $bg;
+    }
+  }
+  div {
+    @include flex(row);
+    @include section-width(6%);
+
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  a,
+  svg {
+    height: 100%;
+    color: $sec;
+    cursor: pointer;
+  }
+  svg {
+    height: 90%;
+    aspect-ratio: 1;
+    &:hover {
+      fill: $hl;
+    }
+  }
+  .icon {
+    width: 90%;
+  }
+  #tooltip {
+    color: $sec;
+    position: fixed;
+    top: 50vh;
+    left: 45vw;
+
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+</style>
+
+<main>
+  <span id="tooltip"> Copied </span>
+  <h1>Get in touch!</h1>
+  <div>
+    <import
+      onclick="copy('ayushmantripathy2004@gmail.com')"
+      path="./mail"
+      type="svg"
+    />
+    <a href="https://www.npmjs.com/~ayushmantripathy">
+      <import class="icon" type="svg" path="./npm" />
+    </a>
+    <a href="https://github.com/AyushmanTripathy/">
+      <import class="icon" type="svg" path="./github" />
+    </a>
+    <a href="https://youtu.be/dQw4w9WgXcQ">
+      <import class="icon" type="svg" path="./youtube" />
+    </a>
+  </div>
+  <form name="mails" action="POST" data-netlify="true">
+    <input
+      autocomplete="off"
+      type="text"
+      name="name"
+      placeholder="Your name"
+      required
+    />
+    <input
+      autocomplete="off"
+      type="email"
+      name="email"
+      placeholder="example@mail.com"
+      required
+    />
+    <input
+      autocomplete="off"
+      type="text"
+      name="subject"
+      placeholder="Subject"
+      required
+    />
+    <textarea
+      name="message"
+      cols="30"
+      rows="10"
+      placeholder="Your message"
+      required
+    ></textarea>
+    <input type="submit" value="Submit" />
+  </form>
+</main>
+
+<script defer>
+  function copy(text) {
+    navigator.clipboard.writeText(text);
+    document.getElementById("tooltip").style.opacity = "100";
+    setTimeout(() => {
+      document.getElementById("tooltip").style.opacity = "0";
+    }, 1500);
+  }
+</script>
